@@ -15,18 +15,18 @@ export class EmployeeService {
   }
 
   getEmployees = () => {
-    return this.http.get(API.url + "employees");
+    return this.http.get(API.url + "employees/");
   };
 
   postEmployee = (employee: Employee) => {
-    return this.http.post(API.url + "employees", employee);
+    return this.http.post(API.url + "employees/", employee);
   };
 
   putEmployee = (employee: Employee) => {
-    return this.http.put(API.url + "employee/" + employee._id, employee);
+    return this.http.put(API.url + "employees/" + employee._id, employee);
   };
 
   deleteEmployee = (_id: string) => {
-    return this.http.delete(API.url + "employee/" + _id);
+    return this.http.delete(API.url + "employees/" + _id);
   };
 }

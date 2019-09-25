@@ -1,5 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { EmployeeService } from "../../services/employee.service";
+import { Employee } from "src/app/models/employee";
+
+import { DataTableDirective } from "angular-datatables";
+
+declare var M: any;
 
 @Component({
   selector: "app-employees",
@@ -10,5 +15,24 @@ import { EmployeeService } from "../../services/employee.service";
 export class EmployeesComponent implements OnInit {
   constructor(private employeeService: EmployeeService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getEmployees();
+  }
+
+  getEmployees = () => {
+    this.employeeService.getEmployees().subscribe(res => {
+      this.employeeService.employees = res as Employee[];
+    });
+  };
+
+  editEmployee = (employee: Employee) => {
+    this.employeeService.selectedEmployee = employee;
+  };
+
+  deleteEmployee = (_id: string) => {
+    this.employeeService.deleteEmployee(_id).subscribe(res => {
+      M.toast({ html: "Deleted Succesfully" });
+      this.getEmployees();
+    });
+  };
 }

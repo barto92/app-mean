@@ -1,8 +1,26 @@
-<nav class="nav-wrapper blue">
-  <a href="/" class="brand-logo">MEAN CRUD</a>
-  <div class="container-fluid">
-    <ul class="navbar-nav"></ul>
-  </div>
-</nav>
+<div class="navbar-fixed ">
+  <nav class=" blue-grey darken-4">
+    <div class="nav-wrapper">
+      <a routerLink="/" class="brand-logo">MEAN</a>
+      <ul class="right hide-on-med-and-down">
+        <li>
+          <a routerLink="/employees" class="nav-link" routerLinkActive="active"
+            >Employees</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/create-employee"
+            class="nav-link"
+            routerLinkActive="active"
+            >Create Employee</a
+          >
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
 
-<app-employees></app-employees>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
