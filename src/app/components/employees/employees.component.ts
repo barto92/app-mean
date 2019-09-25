@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { EmployeeService } from "../../services/employee.service";
-import { NgForm } from "@angular/forms";
 import { Employee } from "src/app/models/employee";
 
 declare var M: any;
@@ -17,29 +16,6 @@ export class EmployeesComponent implements OnInit {
   ngOnInit() {
     this.getEmployees();
   }
-
-  resetForm = (form?: NgForm) => {
-    if (form) {
-      form.reset();
-      this.employeeService.selectedEmployee = new Employee();
-    }
-  };
-
-  addEmployee = (form: NgForm) => {
-    if (form.value._id) {
-      this.employeeService.putEmployee(form.value).subscribe(res => {
-        this.resetForm(form);
-        M.toast({ html: "Updated Succesfully" });
-        this.getEmployees();
-      });
-    } else {
-      this.employeeService.postEmployee(form.value).subscribe(res => {
-        this.resetForm(form);
-        M.toast({ html: "Saved Succesfully" });
-        this.getEmployees();
-      });
-    }
-  };
 
   getEmployees = () => {
     this.employeeService.getEmployees().subscribe(res => {

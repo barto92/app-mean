@@ -1,15 +1,26 @@
-<div class="contatiner">
-  <div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
-        <a href="/" class="brand-logo">MEAN</a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="sass.html">Sass</a></li>
-          <li><a href="badges.html">Components</a></li>
-        </ul>
-      </div>
-    </nav>
-  </div>
+<div class="navbar-fixed ">
+  <nav class=" blue-grey darken-4">
+    <div class="nav-wrapper">
+      <a routerLink="/" class="brand-logo">MEAN</a>
+      <ul class="right hide-on-med-and-down">
+        <li>
+          <a routerLink="employees" class="nav-link" routerLinkActive="active"
+            >Employees</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="create-employee"
+            class="nav-link"
+            routerLinkActive="active"
+            >Create Employee</a
+          >
+        </li>
+      </ul>
+    </div>
+  </nav>
 </div>
 
-<app-employees></app-employees>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
